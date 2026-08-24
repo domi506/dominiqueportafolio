@@ -56,16 +56,20 @@ if ("ResizeObserver" in window) {
 document.querySelectorAll(".accordion-trigger").forEach((trigger) => {
   trigger.addEventListener("click", () => {
     const item = trigger.closest(".accordion-item");
+    // si el ítem clickeado ya estaba abierto, lo cerramos (toggle real);
+    // así todas las flechas pueden quedar guardadas/cerradas a la vez
+    const willOpen = !item.classList.contains("active");
     document.querySelectorAll(".accordion-item").forEach((i) => {
       const isTarget = i === item;
       const btn = i.querySelector(".accordion-trigger");
       const panel = i.querySelector("p");
-      i.classList.toggle("active", isTarget);
-      btn.setAttribute("aria-expanded", isTarget ? "true" : "false");
-      setAccordionPanelHeight(panel, isTarget);
+      const isOpen = isTarget && willOpen;
+      i.classList.toggle("active", isOpen);
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      setAccordionPanelHeight(panel, isOpen);
       // el panel colapsado no debe ser leído por lectores de pantalla
       if (panel) {
-        if (isTarget) panel.removeAttribute("aria-hidden");
+        if (isOpen) panel.removeAttribute("aria-hidden");
         else panel.setAttribute("aria-hidden", "true");
       }
     });

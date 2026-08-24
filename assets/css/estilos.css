@@ -44,6 +44,18 @@ html {
     scroll-behavior: smooth;
 }
 
+/* compensa el header sticky para que el título de cada sección
+   no quede tapado al navegar desde el menú */
+section[id] {
+    scroll-margin-top: 84px;
+}
+
+@media (max-width: 899px) {
+    section[id] {
+        scroll-margin-top: 64px;
+    }
+}
+
 body {
     font-family: "Inter", sans-serif;
     color: var(--text);
@@ -78,6 +90,12 @@ img {
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 32px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
 }
 
 .section-title {
@@ -251,6 +269,37 @@ nav {
     }
 }
 
+/* navbar más compacto en móvil */
+@media (max-width: 899px) {
+    nav {
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 15px;
+        gap: 7px;
+    }
+
+    .logo-mark {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .burger {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 8px 0;
+    }
+}
+
 /* ---------- HERO ---------- */
 .hero-wrap {
     position: relative;
@@ -363,6 +412,13 @@ nav {
     gap: 36px;
     padding: 40px;
     margin-top: 20px;
+}
+
+@media (max-width: 859px) {
+    .about-card {
+        padding: 18px;
+        gap: 24px;
+    }
 }
 
 @media (min-width: 860px) {
@@ -562,6 +618,12 @@ nav {
     padding: 110px 0;
 }
 
+@media (max-width: 640px) {
+    .portfolio {
+        padding: 64px 0;
+    }
+}
+
 .p-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -670,6 +732,12 @@ nav {
     overflow: hidden;
 }
 
+@media (max-width: 640px) {
+    .cta-banner {
+        padding: 56px 0;
+    }
+}
+
 .cta-banner::before {
     content: "";
     position: absolute;
@@ -761,6 +829,12 @@ nav {
 .whatido {
     background: var(--bg-grey);
     padding: 110px 0;
+}
+
+@media (max-width: 640px) {
+    .whatido {
+        padding: 64px 0;
+    }
 }
 
 .wd-grid {
@@ -883,6 +957,12 @@ nav {
     text-align: center;
 }
 
+@media (max-width: 640px) {
+    .testimonial {
+        padding: 56px 0 64px;
+    }
+}
+
 .testimonial-carousel {
     display: flex;
     align-items: center;
@@ -890,6 +970,18 @@ nav {
     gap: 24px;
     max-width: 780px;
     margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+    .testimonial-carousel {
+        gap: 10px;
+    }
+
+    .t-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
 }
 
 .t-track {
@@ -973,6 +1065,12 @@ nav {
     padding-bottom: 110px;
 }
 
+@media (max-width: 640px) {
+    .contact {
+        padding-bottom: 64px;
+    }
+}
+
 .contact-card {
     background: #fff;
     border: 1px solid var(--line);
@@ -993,6 +1091,12 @@ nav {
     background: var(--navy);
     color: #fff;
     padding: 48px 40px;
+}
+
+@media (max-width: 640px) {
+    .contact-left {
+        padding: 32px 24px;
+    }
 }
 
 .contact-left h2 {
@@ -1038,6 +1142,7 @@ nav {
 
 .contact-row span {
     font-size: 14px;
+    word-break: break-word;
 }
 
 .contact-social {
@@ -1063,6 +1168,12 @@ nav {
 
 .contact-right {
     padding: 48px 40px;
+}
+
+@media (max-width: 640px) {
+    .contact-right {
+        padding: 28px 24px 36px;
+    }
 }
 
 .field-grid {
