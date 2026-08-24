@@ -164,7 +164,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0;
+    padding: 25px 0;
     position: relative;
 }
 
@@ -272,7 +272,7 @@ nav {
 /* navbar más compacto en móvil */
 @media (max-width: 899px) {
     nav {
-        padding: 16px 0;
+        padding: 17px 0;
     }
 
     .logo {
