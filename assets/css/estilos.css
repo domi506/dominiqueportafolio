@@ -1047,7 +1047,7 @@ nav {
 }
 
 .quote-author {
-    color: var(--bg-grey);
+    color: var(--navy);
     margin-top: 28px;
     font-weight: 700;
     font-family: "Poppins", sans-serif;
@@ -1265,7 +1265,7 @@ nav {
 }
 
 /* ---------- FOOTER ---------- */
-footer {
+.site-footer {
     background: var(--navy);
     color: rgba(255, 255, 255, 0.6);
     padding: 1rem 0;
