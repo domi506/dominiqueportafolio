@@ -28,13 +28,21 @@ document.querySelectorAll(".accordion-item").forEach((item) => {
   setAccordionPanelHeight(panel, item.classList.contains("active"));
 });
 
+// remide el panel activo del acordeón liberando primero el max-height
+// (si no, la caja queda topada en el valor viejo y el reflow con más
+// líneas de texto se recorta en vez de detectarse)
+function refreshActiveAccordionPanel() {
+  const panel = document.querySelector(".accordion-item.active p");
+  if (!panel) return;
+  panel.style.maxHeight = "none";
+  void panel.offsetHeight; // forzar reflow antes de medir
+  panel.style.maxHeight = panel.scrollHeight + "px";
+}
+
 // recalcular el panel activo cuando termine de cargar todo (fuentes web)
 // por si el alto real del texto cambió tras el reflow, igual que en el
 // carrusel de testimonios
-window.addEventListener("load", () => {
-  const activePanel = document.querySelector(".accordion-item.active p");
-  setAccordionPanelHeight(activePanel, true);
-});
+window.addEventListener("load", refreshActiveAccordionPanel);
 
 // respaldo del caso anterior: si el contenido del panel activo cambia de
 // tamaño por cualquier motivo (fuente que carga tarde, zoom, etc.), se
@@ -42,9 +50,8 @@ window.addEventListener("load", () => {
 if ("ResizeObserver" in window) {
   const accordionResizeObserver = new ResizeObserver((entries) => {
     entries.forEach((entry) => {
-      const panel = entry.target;
-      if (panel.closest(".accordion-item.active")) {
-        panel.style.maxHeight = panel.scrollHeight + "px";
+      if (entry.target.closest(".accordion-item.active")) {
+        refreshActiveAccordionPanel();
       }
     });
   });
@@ -78,13 +85,7 @@ document.querySelectorAll(".accordion-trigger").forEach((trigger) => {
 
 // recalcular alturas abiertas si cambia el ancho de ventana
 // (el texto puede reflowar a más o menos líneas)
-window.addEventListener("resize", () => {
-  document.querySelectorAll(".accordion-item.active p").forEach((panel) => {
-    panel.style.maxHeight = "none";
-    void panel.offsetHeight; // forzar reflow antes de medir
-    panel.style.maxHeight = panel.scrollHeight + "px";
-  });
-});
+window.addEventListener("resize", refreshActiveAccordionPanel);
 // menú hamburguesa
 const burger = document.querySelector(".burger");
 const navMenu = document.querySelector(".nav-links");
