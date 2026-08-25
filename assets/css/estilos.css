@@ -1047,6 +1047,7 @@ nav {
 }
 
 .quote-author {
+    color: var(--bg-grey);
     margin-top: 28px;
     font-weight: 700;
     font-family: "Poppins", sans-serif;
