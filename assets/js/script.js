@@ -192,7 +192,9 @@ function setPlayPauseUI(isPaused) {
   tPlayPause.setAttribute("aria-pressed", isPaused ? "true" : "false");
   tPlayPause.setAttribute(
     "aria-label",
-    isPaused ? "Reanudar avance automático de comentarios" : "Pausar avance automático de comentarios",
+    isPaused
+      ? "Reanudar avance automático de comentarios"
+      : "Pausar avance automático de comentarios",
   );
   const icon = tPlayPause.querySelector(".t-pp-icon");
   if (icon) icon.textContent = isPaused ? "▶" : "⏸";
