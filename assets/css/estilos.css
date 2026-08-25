@@ -257,7 +257,7 @@ nav {
     left: 0;
     right: 0;
     background: #fff;
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--line);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     z-index: 15;
