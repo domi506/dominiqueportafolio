@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://domi506.github.io/dominiqueportafolio/sitemap.xml
