@@ -8,46 +8,37 @@ Sitio web desarrollado con **HTML, CSS y JavaScript Vanilla**, diseñado con un 
 
 El proyecto incorpora las siguientes características:
 
-### ♿ Accesibilidad
+Accesibilidad
 
-- **Skip link** para permitir a usuarios de teclado saltar directamente al contenido principal.
-- Uso de **ARIA** y `aria-live` en el carrusel, anunciando únicamente los cambios realizados manualmente para evitar interrupciones durante el autoplay.
-- Implementación completa de **tabs accesibles**, utilizando `tablist`, `tab` y `tabpanel`, junto con **roving tabindex** para una navegación eficiente mediante teclado.
-- **Indicadores de foco visibles y consistentes** en todos los elementos interactivos.
-- Respeto por la preferencia del usuario mediante `prefers-reduced-motion`.
-- **Fallback con IntersectionObserver**, garantizando que el contenido permanezca accesible incluso en navegadores que no soporten determinadas funcionalidades.
+Se incorporó una opción para que las personas que navegan con teclado puedan acceder rápidamente al contenido principal.
+Se mejoró la accesibilidad del carrusel, evitando que los cambios automáticos interrumpan innecesariamente al usuario.
+Se agregaron indicadores visuales para mostrar claramente qué elemento está seleccionado o activo.
+Se consideraron las preferencias de los usuarios que prefieren reducir las animaciones.
+Se incorporaron alternativas para asegurar que el contenido siga siendo accesible en distintos navegadores.
 
-### 🔎 SEO técnico
+SEO y redes sociales
 
-- Implementación de **datos estructurados JSON-LD**, incluyendo información de tipo `Person`, `knowsAbout` y `sameAs`.
-- Configuración de **Open Graph** y **Twitter Cards** para optimizar la visualización del sitio al compartirlo en redes sociales.
-- Optimización de imágenes mediante **AVIF**, incorporando fallback a **JPG** para garantizar compatibilidad.
+Se organizó la información del sitio para facilitar su comprensión por parte de Google y otros buscadores.
+Se configuró la forma en que el sitio aparece al compartir sus contenidos en redes sociales.
+Se optimizaron las imágenes utilizando formatos modernos, manteniendo una alternativa compatible con navegadores que no los soporten.
 
-### 💻 JavaScript y arquitectura
+Desarrollo
 
-- Desarrollo utilizando **JavaScript Vanilla**, sin dependencias ni frameworks externos.
-- Gestión eficiente de `IntersectionObserver`, `ResizeObserver` y `visibilitychange`.
-- Carrusel con comportamiento inteligente, incluyendo pausa automática al:
-  - Pasar el cursor sobre el componente.
-  - Recibir foco mediante teclado.
-  - Salir del viewport.
-  - Cambiar de pestaña o minimizar la ventana.
+El sitio fue desarrollado utilizando JavaScript, sin depender de frameworks o herramientas externas.
+Se implementaron funciones para detectar cuándo los elementos aparecen en pantalla, cambian de tamaño o dejan de estar visibles.
+El carrusel cuenta con un comportamiento adaptado al usuario: se pausa cuando se pasa el cursor sobre él, cuando se utiliza mediante teclado, cuando deja de estar visible o cuando se cambia de pestaña.
+Se incorporaron alternativas para mantener el funcionamiento del sitio en navegadores con diferentes niveles de compatibilidad.
+Las dimensiones de los elementos se ajustan automáticamente cuando cambia el tamaño de la ventana o termina de cargar el contenido.
 
-- Implementación de **fallbacks** para navegadores que no soporten `IntersectionObserver` o `ResizeObserver`.
-- Recalculado dinámico de alturas durante `load` y `resize`, considerando posibles cambios de layout provocados por la carga de fuentes web.
+Rendimiento
 
-### ⚡ Rendimiento
+Se optimizó la carga de recursos externos para mejorar la velocidad del sitio.
+Se priorizó la carga de la imagen principal para mostrar rápidamente el contenido más importante.
+Las imágenes secundarias se cargan solo cuando son necesarias.
+Se utilizaron formatos de imagen modernos para reducir el peso de los archivos y mejorar los tiempos de carga.
 
-- Uso de `preconnect` para optimizar la conexión con recursos externos.
-- `preload` de la imagen principal del hero.
-- Uso de `fetchpriority="high"` para priorizar el recurso visual principal.
-- Aplicación de `loading="lazy"` en imágenes secundarias.
-- Optimización mediante formatos de imagen modernos como **AVIF**, con fallback a JPG.
+Experiencia de usuario
 
-### 🎯 Experiencia de usuario y robustez
-
-El sitio fue concebido no solo para ofrecer una **interfaz visual atractiva**, sino también para proporcionar una experiencia **rápida, accesible, robusta y eficiente**.
-
-Cada componente está pensado para funcionar correctamente en diferentes dispositivos, navegadores y condiciones de uso, evitando ejecuciones innecesarias en segundo plano y respetando las preferencias de accesibilidad de cada usuario.
-
-El resultado es un sitio que combina **diseño, desarrollo frontend, accesibilidad, SEO técnico y optimización de rendimiento**, buscando entregar una experiencia de calidad tanto para las personas usuarias como para los motores de búsqueda.
+El sitio fue desarrollado buscando un equilibrio entre diseño, facilidad de uso, accesibilidad y velocidad.
+Cada elemento fue pensado para funcionar correctamente en distintos dispositivos y navegadores, ofreciendo una experiencia fluida y evitando procesos innecesarios que puedan afectar el rendimiento.
+El resultado es un sitio que combina diseño UX/UI, desarrollo Front End, accesibilidad, posicionamiento en buscadores y optimización de velocidad, con el objetivo de entregar una experiencia clara y de calidad para los usuarios.

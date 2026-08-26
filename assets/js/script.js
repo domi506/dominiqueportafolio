@@ -301,7 +301,11 @@ if (tQuotes.length) {
 
 // formulario de contacto
 const contactForm = document.querySelector("#contact-form");
-contactForm?.addEventListener("submit", (event) => {
+const contactSubmitBtn = contactForm?.querySelector(".btn");
+const contactSubmitLabel = contactSubmitBtn?.textContent ?? "Enviar ➔";
+const contactStatus = contactForm?.querySelector(".form-status");
+
+contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
   // agregamos la clase "submitted" recién al intentar enviar, así los
   // campos vacíos no se marcan en rojo antes de que la persona intente
@@ -310,7 +314,45 @@ contactForm?.addEventListener("submit", (event) => {
     contactForm.querySelector(":invalid")?.focus();
     return;
   }
-  contactForm.querySelector(".btn").textContent = "Enviado ✓";
+
+  contactSubmitBtn.disabled = true;
+  contactSubmitBtn.textContent = "Enviando…";
+  if (contactStatus) {
+    contactStatus.textContent = "";
+    contactStatus.classList.remove("error");
+  }
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" },
+    });
+
+    if (!response.ok) throw new Error("respuesta no ok de Formspree");
+
+    contactSubmitBtn.textContent = "Enviado ✓";
+    contactForm.reset();
+    contactForm.classList.remove("submitted");
+    if (contactStatus) {
+      contactStatus.textContent =
+        "¡Gracias! Tu mensaje fue enviado, te responderé pronto.";
+    }
+    // tras un envío exitoso dejamos el botón deshabilitado un momento
+    // y luego lo restauramos por si la persona quiere escribir de nuevo
+    setTimeout(() => {
+      contactSubmitBtn.disabled = false;
+      contactSubmitBtn.textContent = contactSubmitLabel;
+    }, 4000);
+  } catch (err) {
+    contactSubmitBtn.disabled = false;
+    contactSubmitBtn.textContent = contactSubmitLabel;
+    if (contactStatus) {
+      contactStatus.classList.add("error");
+      contactStatus.textContent =
+        "No se pudo enviar el mensaje. Intenta de nuevo o escríbeme directo a d.reyes@outlook.cl.";
+    }
+  }
 });
 
 // nav active link on scroll

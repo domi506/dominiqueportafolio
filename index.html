@@ -573,34 +573,37 @@
             </div>
           </div>
           <div class="contact-right">
-            <form id="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/xbgjrrjo" method="POST">
               <div class="field-grid">
                 <div class="field">
-                  <label for="name">Nombre*</label><input id="name" type="text" placeholder="tu nombre"
+                  <label for="name">Nombre*</label><input id="name" name="name" type="text" placeholder="tu nombre"
                     autocomplete="name" required />
                   <span class="field-error">Por favor ingresa tu nombre.</span>
                 </div>
                 <div class="field">
-                  <label for="email">Email*</label><input id="email" type="email" placeholder="tu@email.com"
-                    autocomplete="email" required />
+                  <label for="email">Email*</label><input id="email" name="email" type="email"
+                    placeholder="tu@email.com" autocomplete="email" required />
                   <span class="field-error">Ingresa un email válido.</span>
                 </div>
                 <div class="field">
-                  <label for="location">Ubicación</label><input id="location" type="text" placeholder="Ciudad, País"
-                    autocomplete="address-level2" />
+                  <label for="location">Ubicación</label><input id="location" name="location" type="text"
+                    placeholder="Ciudad, País" autocomplete="address-level2" />
                 </div>
                 <div class="field">
-                  <label for="subject">Asunto*</label><input id="subject" type="text"
+                  <label for="subject">Asunto*</label><input id="subject" name="subject" type="text"
                     placeholder="Consulta sobre el proyecto" autocomplete="off" required />
                   <span class="field-error">Cuéntanos el asunto de tu consulta.</span>
                 </div>
                 <div class="field full">
-                  <label for="message">Mensaje*</label><textarea id="message" placeholder="Cuéntame sobre tu proyecto."
-                    autocomplete="off" required></textarea>
+                  <label for="message">Mensaje*</label><textarea id="message" name="message"
+                    placeholder="Cuéntame sobre tu proyecto." autocomplete="off" required></textarea>
                   <span class="field-error">Escribe un mensaje antes de enviar.</span>
                 </div>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+                  style="position:absolute;left:-9999px" aria-hidden="true" />
               </div>
               <button type="submit" class="btn btn-primary">Enviar ➔</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>

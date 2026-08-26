@@ -1264,6 +1264,10 @@ nav {
     min-height: 1.2em;
 }
 
+.form-status.error {
+    color: #e0355b;
+}
+
 /* ---------- FOOTER ---------- */
 .site-footer {
     background: var(--navy);
